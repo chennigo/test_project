@@ -1,0 +1,1 @@
+import{n as e}from"./index-BIYydAp6.js";function t(t){return e.get(`/reports/stock`,{params:t?{warehouseId:t}:{}})}function n(t,n){return e.get(`/reports/sales`,{params:{from:t,to:n}})}function r(t,n){return e.get(`/reports/profit`,{params:{from:t,to:n}})}function i(t){return e.get(`/reports/low-stock`,{params:t?{warehouseId:t}:{}})}export{t as i,r as n,n as r,i as t};

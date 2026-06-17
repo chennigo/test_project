@@ -61,13 +61,13 @@ const menuGroups = computed<MenuGroup[]>(() => {
         { index: '/stock/out', title: '出库单', icon: Document, roles: ['admin', 'warehouse_sales'] },
         { index: '/stock/check', title: '盘点单', icon: Document, roles: ['admin', 'warehouse_sales'] },
         { index: '/stock/query', title: '库存查询', icon: Box, roles: ['admin', 'warehouse_sales', 'finance'] },
-        { index: '/transfer', title: '仓库调拨', icon: Switch, roles: ['admin', 'warehouse_sales'] },
+        { index: '/stock/transfer', title: '仓库调拨', icon: Switch, roles: ['admin', 'warehouse_sales'] },
       ],
     },
     {
       label: '销售',
       items: [
-        { index: '/sales', title: '销售开单', icon: Sell, roles: ['admin', 'warehouse_sales'] },
+        { index: '/sales/orders', title: '销售开单', icon: Sell, roles: ['admin', 'warehouse_sales'] },
       ],
     },
     {

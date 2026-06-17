@@ -1,0 +1,1 @@
+import{n as e}from"./index-BIYydAp6.js";function t(t,n){let r={warehouseId:t};return n!=null&&(r.productId=n),e.get(`/stocks`,{params:r})}function n(t){return e.post(`/stock-ins`,t)}function r(t){return e.post(`/stock-outs`,t)}function i(t){return e.post(`/stock-checks`,t)}export{t as i,n,r,i as t};

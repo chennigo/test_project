@@ -1,0 +1,1 @@
+import{n as e}from"./index-BIYydAp6.js";function t(){return e.get(`/warehouses`)}function n(t){return e.post(`/warehouses`,t)}function r(t,n){return e.put(`/warehouses/${t}`,n)}export{t as n,r,n as t};

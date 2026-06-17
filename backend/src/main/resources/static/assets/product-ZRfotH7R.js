@@ -1,0 +1,1 @@
+import{n as e}from"./index-BIYydAp6.js";function t(){return e.get(`/products`)}function n(t){return e.post(`/products`,t)}function r(t,n){return e.put(`/products/${t}`,n)}function i(t){return e.get(`/products/${t}/batches`)}function a(t,n){return e.post(`/products/${t}/batches`,n)}export{r as a,t as i,a as n,i as r,n as t};

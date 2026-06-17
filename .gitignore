@@ -11,6 +11,9 @@ frontend/dist/
 data/*.db
 data/*.db-*
 
+# Tools
+.tools/
+
 # OS
 .DS_Store
 Thumbs.db
