@@ -43,8 +43,8 @@ const menuGroups = computed<MenuGroup[]>(() => {
     {
       label: '系统',
       items: [
-        { index: '/admin/users', title: '用户管理', icon: User, roles: ['admin'] },
-        { index: '/admin/warehouses', title: '仓库管理', icon: OfficeBuilding, roles: ['admin'] },
+        { index: '/system/users', title: '用户管理', icon: User, roles: ['admin'] },
+        { index: '/system/warehouses', title: '仓库管理', icon: OfficeBuilding, roles: ['admin'] },
       ],
     },
     {

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import http from '../api/http'
+import { login as loginApi } from '../api/auth'
 
 const STORAGE_KEY = 'systelm_auth'
 
@@ -10,14 +10,6 @@ interface AuthState {
   username: string
   displayName: string
   role: UserRole
-  warehouseIds: number[]
-}
-
-interface LoginResponse {
-  token: string
-  username: string
-  displayName: string
-  role: string
   warehouseIds: number[]
 }
 
@@ -72,10 +64,7 @@ export const useAuthStore = defineStore('auth', {
 
   actions: {
     async login(username: string, password: string) {
-      const { data } = await http.post<LoginResponse>('/auth/login', {
-        username,
-        password,
-      })
+      const { data } = await loginApi({ username, password })
 
       this.token = data.token
       this.username = data.username
