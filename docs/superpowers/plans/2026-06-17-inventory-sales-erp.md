@@ -59,10 +59,10 @@ systelm/
 ### Task 0.1: 初始化 Git 与目录
 
 **Files:**
+
 - Create: `.gitignore`
 - Create: `data/.gitkeep`
-
-- [ ] **Step 1: 创建 .gitignore**
+- **Step 1: 创建 .gitignore**
 
 ```gitignore
 # Java
@@ -83,9 +83,10 @@ data/*.db-*
 Thumbs.db
 ```
 
-- [ ] **Step 2: 初始化仓库**
+- **Step 2: 初始化仓库**
 
 Run:
+
 ```bash
 cd C:\Users\dcy10\Desktop\trae\6.17\cursor\systelm
 git init
@@ -100,11 +101,11 @@ Expected: 仓库创建成功
 ### Task 0.2: Spring Boot 后端脚手架
 
 **Files:**
+
 - Create: `backend/pom.xml`
 - Create: `backend/src/main/java/com/systelm/SystelmApplication.java`
 - Create: `backend/src/main/resources/application.yml`
-
-- [ ] **Step 1: 写 pom.xml**
+- **Step 1: 写 pom.xml**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -192,7 +193,7 @@ Expected: 仓库创建成功
 </project>
 ```
 
-- [ ] **Step 2: 写启动类**
+- **Step 2: 写启动类**
 
 ```java
 package com.systelm;
@@ -208,7 +209,7 @@ public class SystelmApplication {
 }
 ```
 
-- [ ] **Step 3: 写 application.yml**
+- **Step 3: 写 application.yml**
 
 ```yaml
 server:
@@ -235,15 +236,17 @@ systelm:
     expiration-ms: 86400000
 ```
 
-- [ ] **Step 4: 验证编译**
+- **Step 4: 验证编译**
 
 Run:
+
 ```bash
 cd backend && mvn -q compile
 ```
+
 Expected: BUILD SUCCESS
 
-- [ ] **Step 5: Commit**
+- **Step 5: Commit**
 
 ```bash
 git add backend/
@@ -255,11 +258,12 @@ git commit -m "feat: scaffold Spring Boot backend"
 ### Task 0.3: Vue3 前端脚手架
 
 **Files:**
-- Create: `frontend/` via Vite
 
-- [ ] **Step 1: 创建 Vue 项目**
+- Create: `frontend/` via Vite
+- **Step 1: 创建 Vue 项目**
 
 Run:
+
 ```bash
 cd C:\Users\dcy10\Desktop\trae\6.17\cursor\systelm
 npm create vite@latest frontend -- --template vue-ts
@@ -268,7 +272,7 @@ npm install
 npm install element-plus @element-plus/icons-vue vue-router pinia axios
 ```
 
-- [ ] **Step 2: 配置 vite 代理**
+- **Step 2: 配置 vite 代理**
 
 Modify `frontend/vite.config.ts`:
 
@@ -290,15 +294,17 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 3: 验证启动**
+- **Step 3: 验证启动**
 
 Run:
+
 ```bash
 cd frontend && npm run build
 ```
+
 Expected: build 成功
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add frontend/
@@ -312,9 +318,9 @@ git commit -m "feat: scaffold Vue3 frontend"
 ### Task 1.1: Flyway 数据库迁移 V1
 
 **Files:**
-- Create: `backend/src/main/resources/db/migration/V1__init_schema.sql`
 
-- [ ] **Step 1: 写迁移脚本**
+- Create: `backend/src/main/resources/db/migration/V1__init_schema.sql`
+- **Step 1: 写迁移脚本**
 
 ```sql
 CREATE TABLE role (
@@ -439,15 +445,17 @@ CREATE TABLE stock_check_item (
 INSERT INTO role (name) VALUES ('admin'), ('warehouse_sales'), ('finance');
 ```
 
-- [ ] **Step 2: 验证迁移**
+- **Step 2: 验证迁移**
 
 Run:
+
 ```bash
 cd backend && mvn -q spring-boot:run
 ```
+
 Expected: 应用启动，Flyway 执行 V1 成功（Ctrl+C 停止）
 
-- [ ] **Step 3: Commit**
+- **Step 3: Commit**
 
 ```bash
 git add backend/src/main/resources/db/migration/
@@ -459,13 +467,13 @@ git commit -m "feat: add initial database schema"
 ### Task 1.2: JPA 实体 — Role / User / Warehouse
 
 **Files:**
+
 - Create: `backend/src/main/java/com/systelm/entity/Role.java`
 - Create: `backend/src/main/java/com/systelm/entity/UserAccount.java`
 - Create: `backend/src/main/java/com/systelm/entity/Warehouse.java`
 - Create: `backend/src/main/java/com/systelm/repository/UserAccountRepository.java`
 - Create: `backend/src/main/java/com/systelm/repository/WarehouseRepository.java`
-
-- [ ] **Step 1: 写 Role 实体**
+- **Step 1: 写 Role 实体**
 
 ```java
 package com.systelm.entity;
@@ -489,7 +497,7 @@ public class Role {
 }
 ```
 
-- [ ] **Step 2: 写 UserAccount 实体**
+- **Step 2: 写 UserAccount 实体**
 
 ```java
 package com.systelm.entity;
@@ -547,9 +555,10 @@ public class UserAccount {
 }
 ```
 
-- [ ] **Step 3: 写 Warehouse 实体与 Repository**
+- **Step 3: 写 Warehouse 实体与 Repository**
 
 `Warehouse.java`:
+
 ```java
 package com.systelm.entity;
 
@@ -579,6 +588,7 @@ public class Warehouse {
 ```
 
 `UserAccountRepository.java`:
+
 ```java
 package com.systelm.repository;
 
@@ -592,6 +602,7 @@ public interface UserAccountRepository extends JpaRepository<UserAccount, Long> 
 ```
 
 `WarehouseRepository.java`:
+
 ```java
 package com.systelm.repository;
 
@@ -601,12 +612,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface WarehouseRepository extends JpaRepository<Warehouse, Long> {}
 ```
 
-- [ ] **Step 4: 编译验证**
+- **Step 4: 编译验证**
 
 Run: `cd backend && mvn -q compile`
 Expected: SUCCESS
 
-- [ ] **Step 5: Commit**
+- **Step 5: Commit**
 
 ```bash
 git commit -am "feat: add user and warehouse entities"
@@ -617,10 +628,10 @@ git commit -am "feat: add user and warehouse entities"
 ### Task 1.3: 种子管理员账号
 
 **Files:**
+
 - Create: `backend/src/main/resources/db/migration/V2__seed_admin.sql`
 - Create: `backend/src/main/java/com/systelm/config/DataInitializer.java`（仅开发环境可选；生产用迁移种子）
-
-- [ ] **Step 1: 写 V2 迁移（BCrypt hash of "admin123"）**
+- **Step 1: 写 V2 迁移（BCrypt hash of "admin123"）**
 
 ```sql
 INSERT INTO user_account (username, password_hash, display_name, role_id)
@@ -633,11 +644,11 @@ FROM role WHERE name = 'admin';
 
 > 密码明文：`admin123`（首次登录后提示修改）
 
-- [ ] **Step 2: 重启验证 admin 存在**
+- **Step 2: 重启验证 admin 存在**
 
 Run: `cd backend && mvn -q spring-boot:run`，查日志无 Flyway 错误
 
-- [ ] **Step 3: Commit**
+- **Step 3: Commit**
 
 ```bash
 git add backend/src/main/resources/db/migration/V2__seed_admin.sql
@@ -649,6 +660,7 @@ git commit -m "feat: seed default admin user"
 ### Task 1.4: JWT 登录 API（TDD）
 
 **Files:**
+
 - Create: `backend/src/main/java/com/systelm/security/JwtService.java`
 - Create: `backend/src/main/java/com/systelm/security/JwtAuthFilter.java`
 - Create: `backend/src/main/java/com/systelm/config/SecurityConfig.java`
@@ -656,8 +668,7 @@ git commit -m "feat: seed default admin user"
 - Create: `backend/src/main/java/com/systelm/dto/LoginResponse.java`
 - Create: `backend/src/main/java/com/systelm/controller/AuthController.java`
 - Test: `backend/src/test/java/com/systelm/controller/AuthControllerTest.java`
-
-- [ ] **Step 1: 写失败测试**
+- **Step 1: 写失败测试**
 
 ```java
 package com.systelm.controller;
@@ -695,6 +706,7 @@ class AuthControllerTest {
 ```
 
 `LoginRequest.java`:
+
 ```java
 package com.systelm.dto;
 
@@ -702,6 +714,7 @@ public record LoginRequest(String username, String password) {}
 ```
 
 `LoginResponse.java`:
+
 ```java
 package com.systelm.dto;
 
@@ -716,14 +729,15 @@ public record LoginResponse(
 ) {}
 ```
 
-- [ ] **Step 2: 运行测试确认失败**
+- **Step 2: 运行测试确认失败**
 
 Run: `cd backend && mvn -q test -Dtest=AuthControllerTest`
 Expected: FAIL（404 或 bean 缺失）
 
-- [ ] **Step 3: 实现 JwtService + SecurityConfig + AuthController**
+- **Step 3: 实现 JwtService + SecurityConfig + AuthController**
 
 `JwtService.java` 核心方法:
+
 ```java
 public String generateToken(String username) { /* HS256, subject=username */ }
 public String extractUsername(String token) { /* parse claims */ }
@@ -731,6 +745,7 @@ public boolean isTokenValid(String token, UserDetails user) { /* exp + subject *
 ```
 
 `SecurityConfig.java` 要点:
+
 ```java
 http.csrf(csrf -> csrf.disable())
     .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -741,6 +756,7 @@ http.csrf(csrf -> csrf.disable())
 ```
 
 `AuthController.java`:
+
 ```java
 @RestController
 @RequestMapping("/api/auth")
@@ -753,12 +769,12 @@ public class AuthController {
 }
 ```
 
-- [ ] **Step 4: 运行测试通过**
+- **Step 4: 运行测试通过**
 
 Run: `cd backend && mvn -q test -Dtest=AuthControllerTest`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- **Step 5: Commit**
 
 ```bash
 git commit -am "feat: add JWT login API"
@@ -769,10 +785,10 @@ git commit -am "feat: add JWT login API"
 ### Task 1.5: WarehouseAccessService（仓库权限校验）
 
 **Files:**
+
 - Create: `backend/src/main/java/com/systelm/service/WarehouseAccessService.java`
 - Test: `backend/src/test/java/com/systelm/service/WarehouseAccessServiceTest.java`
-
-- [ ] **Step 1: 写失败测试**
+- **Step 1: 写失败测试**
 
 ```java
 package com.systelm.service;
@@ -803,11 +819,11 @@ class WarehouseAccessServiceTest {
 }
 ```
 
-- [ ] **Step 2: 运行确认 FAIL**
+- **Step 2: 运行确认 FAIL**
 
 Run: `mvn -q test -Dtest=WarehouseAccessServiceTest`
 
-- [ ] **Step 3: 实现**
+- **Step 3: 实现**
 
 ```java
 package com.systelm.service;
@@ -833,7 +849,7 @@ public class WarehouseAccessService {
 }
 ```
 
-- [ ] **Step 4: 测试 PASS + Commit**
+- **Step 4: 测试 PASS + Commit**
 
 ```bash
 mvn -q test -Dtest=WarehouseAccessServiceTest
@@ -845,13 +861,13 @@ git commit -am "feat: add warehouse access guard"
 ### Task 1.6: 商品 / 分类 / 批次实体与 API
 
 **Files:**
+
 - Create: `backend/src/main/java/com/systelm/entity/Product.java`
 - Create: `backend/src/main/java/com/systelm/entity/ProductCategory.java`
 - Create: `backend/src/main/java/com/systelm/entity/ProductBatch.java`
 - Create: repositories + `ProductService.java` + `ProductController.java`
 - Test: `backend/src/test/java/com/systelm/service/ProductServiceTest.java`
-
-- [ ] **Step 1: 写 ProductServiceTest — 创建商品与批次**
+- **Step 1: 写 ProductServiceTest — 创建商品与批次**
 
 ```java
 @Test
@@ -865,14 +881,14 @@ void createProduct_withBatch_persistsBoth() {
 }
 ```
 
-- [ ] **Step 2: FAIL → 实现实体/服务/控制器**
+- **Step 2: FAIL → 实现实体/服务/控制器**
 
 API 端点:
+
 - `GET/POST/PUT /api/products`
 - `GET/POST /api/product-categories`
 - `GET/POST /api/products/{id}/batches`
-
-- [ ] **Step 3: PASS + Commit**
+- **Step 3: PASS + Commit**
 
 ```bash
 git commit -am "feat: add product category batch APIs"
@@ -883,12 +899,12 @@ git commit -am "feat: add product category batch APIs"
 ### Task 1.7: StockService 核心库存逻辑（TDD）
 
 **Files:**
+
 - Create: `backend/src/main/java/com/systelm/entity/Stock.java`
 - Create: `backend/src/main/java/com/systelm/repository/StockRepository.java`
 - Create: `backend/src/main/java/com/systelm/service/StockService.java`
 - Test: `backend/src/test/java/com/systelm/service/StockServiceTest.java`
-
-- [ ] **Step 1: 写失败测试 — 入库增加库存**
+- **Step 1: 写失败测试 — 入库增加库存**
 
 ```java
 @Test
@@ -900,7 +916,7 @@ void increaseStock_createsOrUpdatesQuantity() {
 }
 ```
 
-- [ ] **Step 2: 写失败测试 — 出库不足抛错**
+- **Step 2: 写失败测试 — 出库不足抛错**
 
 ```java
 @Test
@@ -911,7 +927,7 @@ void decreaseStock_whenInsufficient_throws() {
 }
 ```
 
-- [ ] **Step 3: 实现 StockService**
+- **Step 3: 实现 StockService**
 
 ```java
 @Transactional
@@ -936,7 +952,7 @@ public void decrease(Long warehouseId, Long productId, Long batchId, double qty)
 }
 ```
 
-- [ ] **Step 4: 测试 PASS + Commit**
+- **Step 4: 测试 PASS + Commit**
 
 ```bash
 git commit -am "feat: add stock increase/decrease service"
@@ -947,11 +963,11 @@ git commit -am "feat: add stock increase/decrease service"
 ### Task 1.8: 入库 / 出库 / 盘点单据服务
 
 **Files:**
+
 - Create: `StockInService.java`, `StockOutService.java`, `StockCheckService.java`
 - Create: 对应 Controller
 - Test: `StockInServiceTest.java`, `StockCheckServiceTest.java`
-
-- [ ] **Step 1: StockInServiceTest**
+- **Step 1: StockInServiceTest**
 
 ```java
 @Test
@@ -963,7 +979,7 @@ void confirmStockIn_updatesStockSnapshot() {
 }
 ```
 
-- [ ] **Step 2: StockCheckServiceTest — 盘盈盘亏**
+- **Step 2: StockCheckServiceTest — 盘盈盘亏**
 
 ```java
 @Test
@@ -976,19 +992,19 @@ void confirmStockCheck_adjustsStockByDiff() {
 }
 ```
 
-- [ ] **Step 3: 实现三服务 + REST API**
-
+- **Step 3: 实现三服务 + REST API**
 - `POST /api/stock-ins` 创建并确认入库
 - `POST /api/stock-outs` 创建并确认出库（`out_type`: LOSS/SAMPLE/OTHER）
 - `POST /api/stock-checks` 创建并确认盘点
 
 每个服务:
+
 1. 校验 `warehouseAccessService.requireWarehouseAccess`
 2. 生成 `doc_no`（如 `IN20260617001`）
 3. 写单据 + 明细
 4. 调用 `StockService`
 
-- [ ] **Step 4: 测试 PASS + Commit**
+- **Step 4: 测试 PASS + Commit**
 
 ```bash
 git commit -am "feat: add stock in out check document flows"
@@ -999,19 +1015,15 @@ git commit -am "feat: add stock in out check document flows"
 ### Task 1.9: 用户与仓库管理 API（超管）
 
 **Files:**
+
 - Create: `UserService.java`, `UserController.java`
 - Create: `WarehouseController.java`
-
-- [ ] **Step 1: 实现仓库 CRUD**
-
+- **Step 1: 实现仓库 CRUD**
 - `GET/POST/PUT /api/warehouses`（admin only）
-
-- [ ] **Step 2: 实现用户 CRUD + 分配仓库**
-
+- **Step 2: 实现用户 CRUD + 分配仓库**
 - `GET/POST/PUT /api/users`（admin only）
 - 请求体含 `roleName`, `warehouseIds`
-
-- [ ] **Step 3: 手工验证**
+- **Step 3: 手工验证**
 
 ```bash
 # 登录拿 token
@@ -1021,7 +1033,7 @@ curl -X POST http://localhost:8080/api/auth/login \
 # 用 token 创建仓库
 ```
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git commit -am "feat: add admin user and warehouse management APIs"
@@ -1032,21 +1044,22 @@ git commit -am "feat: add admin user and warehouse management APIs"
 ### Task 1.10: 前端 — frontend-design 主题与布局壳
 
 **Files:**
+
 - Create: `frontend/src/styles/theme.css`
 - Create: `frontend/src/layouts/MainLayout.vue`
 - Modify: `frontend/src/main.ts`
-
-- [ ] **Step 1: 调用 `frontend-design` 技能**
+- **Step 1: 调用 `frontend-design` 技能**
 
 根据 brief「内部多仓 ERP、一线仓管/销售、高效录单」产出设计计划:
+
 - 配色 token（4–6 色）
 - 字体 pairing
 - 侧栏+顶栏布局
 - 签名元素（如：仓库状态色条、单据号 monospace 样式）
-
-- [ ] **Step 2: 写 theme.css（按设计计划）**
+- **Step 2: 写 theme.css（按设计计划）**
 
 示例结构:
+
 ```css
 :root {
   --color-primary: #1e4d6b;
@@ -1059,13 +1072,11 @@ git commit -am "feat: add admin user and warehouse management APIs"
 }
 ```
 
-- [ ] **Step 3: 实现 MainLayout.vue**
-
+- **Step 3: 实现 MainLayout.vue**
 - 顶栏：系统名、当前用户、退出
 - 侧栏：按 `authStore.role` 动态菜单
 - 主区 `<router-view />`
-
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git commit -am "feat: add frontend shell with custom theme"
@@ -1076,11 +1087,11 @@ git commit -am "feat: add frontend shell with custom theme"
 ### Task 1.11: 前端 — 登录 + 阶段1业务页面
 
 **Files:**
+
 - Create: `frontend/src/views/LoginView.vue`
 - Create: `frontend/src/views/warehouse/`, `product/`, `stock/` 下各页面
 - Create: `frontend/src/api/*.ts`, `frontend/src/stores/auth.ts`
-
-- [ ] **Step 1: auth store + 路由守卫**
+- **Step 1: auth store + 路由守卫**
 
 ```typescript
 // stores/auth.ts
@@ -1093,30 +1104,26 @@ export const useAuthStore = defineStore('auth', {
 })
 ```
 
-- [ ] **Step 2: 登录页**
-
+- **Step 2: 登录页**
 - 表单：用户名、密码
 - 成功后跳转 `/dashboard`
-
-- [ ] **Step 3: 仓库/商品/入库/出库/盘点页面**
+- **Step 3: 仓库/商品/入库/出库/盘点页面**
 
 每页模式：表格 + 搜索 + 新建对话框
+
 - 仓库管理（admin）
 - 商品管理（admin 可编辑，其他只读）
 - 入库单：选仓 → 添加行（商品、批次、数量）
 - 出库单：选仓 → 添加行，显示可用库存
 - 盘点单：选仓 → 加载账面库存 → 填实盘数
-
-- [ ] **Step 4: 阶段1手工验收清单**
-
-- [ ] admin 登录成功
-- [ ] 创建 2 个仓库，创建仓管用户并分配仓库
-- [ ] 录入商品与批次，入库 100 件
-- [ ] 出库 30 件，库存变 70
-- [ ] 盘点改为 65，库存变 65
-- [ ] 仓管用户无法看到未分配仓库
-
-- [ ] **Step 5: Commit**
+- **Step 4: 阶段1手工验收清单**
+- admin 登录成功
+- 创建 2 个仓库，创建仓管用户并分配仓库
+- 录入商品与批次，入库 100 件
+- 出库 30 件，库存变 70
+- 盘点改为 65，库存变 65
+- 仓管用户无法看到未分配仓库
+- **Step 5: Commit**
 
 ```bash
 git commit -am "feat: complete phase 1 frontend pages"
@@ -1129,9 +1136,9 @@ git commit -am "feat: complete phase 1 frontend pages"
 ### Task 2.1: Flyway V3 — 调拨/客户/销售表
 
 **Files:**
-- Create: `backend/src/main/resources/db/migration/V3__transfer_customer_sales.sql`
 
-- [ ] **Step 1: 写迁移**
+- Create: `backend/src/main/resources/db/migration/V3__transfer_customer_sales.sql`
+- **Step 1: 写迁移**
 
 ```sql
 CREATE TABLE customer (
@@ -1183,7 +1190,7 @@ CREATE TABLE sales_order_item (
 );
 ```
 
-- [ ] **Step 2: Commit**
+- **Step 2: Commit**
 
 ```bash
 git commit -am "feat: add transfer customer sales schema"
@@ -1194,10 +1201,10 @@ git commit -am "feat: add transfer customer sales schema"
 ### Task 2.2: TransferService（TDD）
 
 **Files:**
+
 - Create: `TransferService.java`, `TransferController.java`
 - Test: `TransferServiceTest.java`
-
-- [ ] **Step 1: 写失败测试**
+- **Step 1: 写失败测试**
 
 ```java
 @Test
@@ -1211,19 +1218,18 @@ void confirmTransfer_movesStockBetweenWarehouses() {
 }
 ```
 
-- [ ] **Step 2: 实现 — 校验双方仓库权限、from 扣减、to 增加**
-
-- [ ] **Step 3: API `POST /api/transfers` + Commit**
+- **Step 2: 实现 — 校验双方仓库权限、from 扣减、to 增加**
+- **Step 3: API `POST /api/transfers` + Commit**
 
 ---
 
 ### Task 2.3: CustomerService + SalesOrderService（TDD）
 
 **Files:**
+
 - Create: `CustomerService.java`, `SalesOrderService.java`
 - Test: `SalesOrderServiceTest.java`
-
-- [ ] **Step 1: 写失败测试**
+- **Step 1: 写失败测试**
 
 ```java
 @Test
@@ -1237,32 +1243,28 @@ void confirmSalesOrder_decreasesStockAndCalculatesTotal() {
 }
 ```
 
-- [ ] **Step 2: 实现客户 CRUD + 销售确认（同时写 stock_out 记录，out_type=SALES）**
+- **Step 2: 实现客户 CRUD + 销售确认（同时写 stock_out 记录，out_type=SALES）**
 
 API:
+
 - `GET/POST/PUT /api/customers`
 - `GET /api/customers/{id}/orders`
 - `POST /api/sales-orders`
 - `GET /api/stocks?warehouseId=&productId=`
-
-- [ ] **Step 3: 测试 PASS + Commit**
+- **Step 3: 测试 PASS + Commit**
 
 ---
 
 ### Task 2.4: 前端 — 调拨/客户/销售/库存查询页
 
 **Files:**
+
 - Create: `frontend/src/views/transfer/`, `customer/`, `sales/`, `stock/StockListView.vue`
-
-- [ ] **Step 1: 调拨页** — 双仓选择，校验调出仓库存
-
-- [ ] **Step 2: 客户页** — CRUD + 历史订单抽屉
-
-- [ ] **Step 3: 销售开单页** — 选客户、发货仓、商品行（批次/数量/单价），显示合计
-
-- [ ] **Step 4: 库存查询页** — 按仓/商品/批次筛选
-
-- [ ] **Step 5: 阶段2验收 + Commit**
+- **Step 1: 调拨页** — 双仓选择，校验调出仓库存
+- **Step 2: 客户页** — CRUD + 历史订单抽屉
+- **Step 3: 销售开单页** — 选客户、发货仓、商品行（批次/数量/单价），显示合计
+- **Step 4: 库存查询页** — 按仓/商品/批次筛选
+- **Step 5: 阶段2验收 + Commit**
 
 ---
 
@@ -1271,10 +1273,10 @@ API:
 ### Task 3.1: ReportService
 
 **Files:**
+
 - Create: `ReportService.java`, `ReportController.java`
 - Test: `ReportServiceTest.java`
-
-- [ ] **Step 1: 库存报表测试**
+- **Step 1: 库存报表测试**
 
 ```java
 @Test
@@ -1286,8 +1288,7 @@ void stockReport_returnsQuantityAndValue() {
 }
 ```
 
-- [ ] **Step 2: 实现报表 API**
-
+- **Step 2: 实现报表 API**
 - `GET /api/reports/stock` — 各仓库存数量、金额（qty × cost_price）
 - `GET /api/reports/sales?from=&to=` — 按日/商品/客户汇总
 - `GET /api/reports/profit?from=&to=` — 销售额 − 成本
@@ -1295,38 +1296,35 @@ void stockReport_returnsQuantityAndValue() {
 
 财务角色：全部只读；仓管仅看自己仓的 low-stock
 
-- [ ] **Step 3: 测试 PASS + Commit**
+- **Step 3: 测试 PASS + Commit**
 
 ---
 
 ### Task 3.2: 前端报表页
 
 **Files:**
+
 - Create: `frontend/src/views/report/StockReportView.vue`
 - Create: `frontend/src/views/report/SalesReportView.vue`
 - Create: `frontend/src/views/report/ProfitReportView.vue`
 - Create: `frontend/src/views/report/LowStockView.vue`
-
-- [ ] **Step 1: 各报表页 — 日期筛选 + Element Plus 表格/简单图表**
-
-- [ ] **Step 2: 阶段3验收清单**
-
-- [ ] 库存报表金额正确
-- [ ] 销售报表按日期筛选
-- [ ] 低库存商品标红
-- [ ] 财务账号只能看报表，不能改数据
-
-- [ ] **Step 3: Commit**
+- **Step 1: 各报表页 — 日期筛选 + Element Plus 表格/简单图表**
+- **Step 2: 阶段3验收清单**
+- 库存报表金额正确
+- 销售报表按日期筛选
+- 低库存商品标红
+- 财务账号只能看报表，不能改数据
+- **Step 3: Commit**
 
 ---
 
 ### Task 3.3: 生产打包与内网部署
 
 **Files:**
+
 - Modify: `backend/pom.xml`（静态资源打包）
 - Create: `scripts/start.bat`, `scripts/start.sh`
-
-- [ ] **Step 1: 配置 Spring Boot 托管 frontend/dist**
+- **Step 1: 配置 Spring Boot 托管 frontend/dist**
 
 ```java
 // WebMvcConfig.java
@@ -1335,22 +1333,23 @@ registry.addResourceHandler("/**")
 ```
 
 构建流程:
+
 ```bash
 cd frontend && npm run build
 cp -r dist/* ../backend/src/main/resources/static/
 cd ../backend && mvn -q package -DskipTests
 ```
 
-- [ ] **Step 2: 写启动脚本**
+- **Step 2: 写启动脚本**
 
 `scripts/start.bat`:
+
 ```bat
 java -jar backend\target\backend-0.1.0.jar
 ```
 
-- [ ] **Step 3: 验证单 JAR 访问 `http://localhost:8080`**
-
-- [ ] **Step 4: Commit + tag**
+- **Step 3: 验证单 JAR 访问 `http://localhost:8080`**
+- **Step 4: Commit + tag**
 
 ```bash
 git commit -am "chore: add production build and start scripts"
@@ -1361,19 +1360,21 @@ git tag v0.1.0-mvp
 
 ## 规格覆盖自检
 
-| 规格要求 | 对应任务 |
-|----------|----------|
-| 多仓库 | Task 1.2, 1.5, 1.9 |
-| 批次库存 | Task 1.6, 1.7 |
-| 入库/出库/盘点 | Task 1.8 |
-| 调拨 | Task 2.1, 2.2 |
-| 客户+销售 | Task 2.1, 2.3, 2.4 |
-| 报表+预警 | Task 3.1, 3.2 |
-| 角色权限+仓库隔离 | Task 1.4, 1.5, 1.9 |
-| JWT 登录 | Task 1.4 |
-| frontend-design | Task 1.10 |
-| SQLite 内网部署 | Task 0.2, 3.3 |
-| 不含采购 | 无相关任务 ✓ |
+
+| 规格要求            | 对应任务               |
+| --------------- | ------------------ |
+| 多仓库             | Task 1.2, 1.5, 1.9 |
+| 批次库存            | Task 1.6, 1.7      |
+| 入库/出库/盘点        | Task 1.8           |
+| 调拨              | Task 2.1, 2.2      |
+| 客户+销售           | Task 2.1, 2.3, 2.4 |
+| 报表+预警           | Task 3.1, 3.2      |
+| 角色权限+仓库隔离       | Task 1.4, 1.5, 1.9 |
+| JWT 登录          | Task 1.4           |
+| frontend-design | Task 1.10          |
+| SQLite 内网部署     | Task 0.2, 3.3      |
+| 不含采购            | 无相关任务 ✓            |
+
 
 ---
 
@@ -1386,3 +1387,4 @@ git tag v0.1.0-mvp
 5. 阶段 2 → 验收
 6. 阶段 3 → 验收
 7. Task 3.3 打包部署
+
